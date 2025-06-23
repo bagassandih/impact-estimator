@@ -1,43 +1,53 @@
 {
-	"name": "impact-estimator",
-	"displayName": "Impact Estimator",
-	"description": "Menampilkan dampak perubahan file/fungsi secara otomatis",
-	"version": "0.0.1",
-	"engines": {
-		"vscode": "^1.75.0"
-	},
-	"categories": [
-		"Other"
-	],
-	"activationEvents": [],
-	"main": "./extension.js",
-	"contributes": {
-		"commands": [
-			{
-				"command": "impactEstimator.run",
-				"title": "Impact Estimator"
-			}
-		],
-		"menus": {
-			"editor/context": [
-				{
-					"command": "impactEstimator.run",
-					"when": "editorLangId == php || editorLangId == javascript || editorLangId == typescript || editorLangId == go",
-					"group": "navigation@2"
-				}
-			],
-			"explorer/context": [
-				{
-					"command": "impactEstimator.run",
-					"when": "resourceExtname == .php || resourceExtname == .js || resourceExtname == .ts || resourceExtname == .go",
-					"group": "navigation@2"
-				}
-			]
-		}
-	},
-	"scripts": {
-		"compile": "echo No compilation step"
-	},
-	"dependencies": {}
+  "name": "impact-estimator",
+  "displayName": "Impact Estimator",
+  "description": "Menampilkan dampak perubahan file/fungsi secara otomatis",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "impactEstimator.run",
+        "title": "Impact Estimator: Jalankan di File Ini"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "impactEstimator.run",
+          "when": "editorLangId == php || editorLangId == javascript || editorLangId == typescript || editorLangId == go",
+          "group": "navigation@2"
+        }
+      ]
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "impactEstimator",
+          "title": "Impact Estimator",
+          "icon": "media/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "impactEstimator": [
+        {
+          "type": "webview",
+          "id": "impactEstimatorResults",
+          "name": "Hasil Estimasi"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "compile": "echo No compilation step"
+  },
+  "dependencies": {},
+  "icon": "media/icon.svg"
 }
-
